@@ -31,7 +31,7 @@ const Card: React.FC<Props> = ({
   });
 
   return (
-    <div className='w-full h-[72px] flex gap-2 bg-[var(--neutrals-light)] rounded-lg shadow-sm overflow-hidden'>
+    <div className='w-full h-[72px] flex gap-2 bg-[var(--neutrals-light)] rounded-lg overflow-hidden'>
       <div className='flex flex-1 items-center gap-2'>
         <Image
           src={image}
