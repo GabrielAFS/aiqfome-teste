@@ -1,7 +1,14 @@
+"use client";
+
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import React from "react";
 
 const Header: React.FC = () => {
+  const pathname = usePathname();
+
+  const isHomePage = pathname === "/";
+
   return (
     <header className='w-full bg-[var(--primary)] text-[var(--background)] p-4'>
       <div className='flex items-center gap-6'>
@@ -31,16 +38,18 @@ const Header: React.FC = () => {
         </div>
       </div>
 
-      <div className='relative mt-4'>
-        <div className='absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none'>
-          <Image src='/search.svg' alt='Search Icon' width={16} height={16} />
+      {isHomePage && (
+        <div className='relative mt-4'>
+          <div className='absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none'>
+            <Image src='/search.svg' alt='Search Icon' width={16} height={16} />
+          </div>
+          <input
+            type='text'
+            placeholder='busque pela loja ou culinária'
+            className='block w-full h-10 bg-[var(--background)] text-[var(--text-light)] border border-solid border-[var(--secondary)] rounded-lg px-4 ps-11'
+          />
         </div>
-        <input
-          type='text'
-          placeholder='busque pela loja ou culinária'
-          className='block w-full h-10 bg-[var(--background)] text-[var(--text-light)] border border-solid border-[var(--secondary)] rounded-lg px-4 ps-11'
-        />
-      </div>
+      )}
     </header>
   );
 };
