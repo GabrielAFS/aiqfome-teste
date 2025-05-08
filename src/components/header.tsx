@@ -30,6 +30,17 @@ const Header: React.FC = () => {
           <Image src='/user.svg' alt='User Icon' width={24} height={24} />
         </div>
       </div>
+
+      <div className='relative mt-4'>
+        <div className='absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none'>
+          <Image src='/search.svg' alt='Search Icon' width={16} height={16} />
+        </div>
+        <input
+          type='text'
+          placeholder='busque pela loja ou culinária'
+          className='block w-full h-10 bg-[var(--background)] text-[var(--text-light)] border border-solid border-[var(--secondary)] rounded-lg px-4 ps-11'
+        />
+      </div>
     </header>
   );
 };
