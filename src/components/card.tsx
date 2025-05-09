@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 interface Props {
@@ -16,6 +18,12 @@ const Card: React.FC<Props> = ({
   rating,
   isClosed = false,
 }) => {
+  const router = useRouter();
+
+  const handleCardClick = () => {
+    router.push("/restaurant");
+  };
+
   const isDeliveryForFree = deliveryFee === 0;
   const formattedDeliveryFee = isDeliveryForFree
     ? "grátis"
@@ -31,7 +39,10 @@ const Card: React.FC<Props> = ({
   });
 
   return (
-    <div className='w-full h-[72px] flex gap-2 bg-[var(--neutrals-light)] rounded-lg overflow-hidden'>
+    <div
+      onClick={handleCardClick}
+      className='w-full h-[72px] flex gap-2 bg-[var(--neutrals-light)] rounded-lg overflow-hidden cursor-pointer'
+    >
       <div className='flex flex-1 items-center gap-2'>
         <Image
           src={image}
