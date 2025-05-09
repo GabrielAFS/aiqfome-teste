@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 
 const Restaurant: React.FC = () => {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -84,51 +84,80 @@ const Restaurant: React.FC = () => {
       </section>
       <section>
         <div className='flex flex-col items-baseline gap-2'>
-          <div>
+          <div className='py-3'>
             <button
-              className='w-full text-left font-bold text-[var(--text-light)]'
-              onClick={() => toggleDropdown("menu")}
+              className='w-full flex items-center text-left text-[var(--text-light)] py-3'
+              onClick={() => toggleDropdown("niguiris")}
             >
-              Menu
+              <div className='flex flex-col gap-1 grow-1'>
+                <p className='text-md font-bold text-[var(--neutrals-900)]'>
+                  Ceviche
+                </p>
+                <p className='text-xs'>
+                  um prato super refrescante de peixe fatiado e marinado com
+                  limão
+                </p>
+              </div>
+              <div>
+                <Image
+                  src='/chevron_down.svg'
+                  alt='chevron'
+                  width={14}
+                  height={14}
+                  className={`${
+                    openDropdown === "niguiris" ? "rotate-180" : ""
+                  } transition-transform object-cover`}
+                />
+              </div>
             </button>
-            {openDropdown === "menu" && (
-              <div className='pl-4'>
-                <p>Prato 1</p>
-                <p>Prato 2</p>
-                <p>Prato 3</p>
+            {openDropdown === "niguiris" && (
+              <div className='flex flex-col gap-6 pl-2 pt-2'>
+                <div
+                  className='w-full flex items-center text-left text-[var(--text-light)]'
+                  onClick={() => {}}
+                >
+                  <div className='flex flex-col gap-1 grow-1'>
+                    <p className='text-sm font-bold text-[var(--neutrals-900)]'>
+                      Califórnia
+                    </p>
+                    <p className='text-xs'>Kani, pepino e maçã ou manga</p>
+                  </div>
+                  <p className='self-baseline text-sm text-[var(--primary)] font-bold'>
+                    R$ 13,99
+                  </p>
+                </div>
+                <div
+                  className='w-full flex items-center text-left text-[var(--text-light)]'
+                  onClick={() => {}}
+                >
+                  <div className='flex flex-col gap-1 grow-1'>
+                    <p className='text-sm font-bold text-[var(--neutrals-900)]'>
+                      Califórnia
+                    </p>
+                    <p className='text-xs'>Kani, pepino e maçã ou manga</p>
+                  </div>
+                  <p className='self-baseline text-sm text-[var(--primary)] font-bold'>
+                    R$ 25,00
+                  </p>
+                </div>
+                <div
+                  className='w-full flex items-center text-left text-[var(--text-light)]'
+                  onClick={() => {}}
+                >
+                  <div className='flex flex-col gap-1 grow-1'>
+                    <p className='text-sm font-bold text-[var(--neutrals-900)]'>
+                      Califórnia
+                    </p>
+                    <p className='text-xs'>Kani, pepino e maçã ou manga</p>
+                  </div>
+                  <p className='self-baseline text-sm text-[var(--primary)] font-bold'>
+                    R$ 15,00
+                  </p>
+                </div>
               </div>
             )}
           </div>
-          <div>
-            <button
-              className='w-full text-left font-bold text-[var(--text-light)]'
-              onClick={() => toggleDropdown("reviews")}
-            >
-              Avaliações
-            </button>
-            {openDropdown === "reviews" && (
-              <div className='pl-4'>
-                <p>Avaliação 1</p>
-                <p>Avaliação 2</p>
-                <p>Avaliação 3</p>
-              </div>
-            )}
-          </div>
-          <div>
-            <button
-              className='w-full text-left font-bold text-[var(--text-light)]'
-              onClick={() => toggleDropdown("info")}
-            >
-              Informações
-            </button>
-            {openDropdown === "info" && (
-              <div className='pl-4'>
-                <p>Endereço</p>
-                <p>Horário de funcionamento</p>
-                <p>Contato</p>
-              </div>
-            )}
-          </div>
+          <hr className='w-full border-b-4 border-[var(--neutrals)]' />
         </div>
       </section>
     </div>
