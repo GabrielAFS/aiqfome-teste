@@ -8,8 +8,12 @@
   --text-light: #6d6f73;
   --neutrals: #eef0f5;
   --neutrals-light: #f5f6f9;
+  --neutrals-400: #a8adb7;
   --purple: #580f78;
   --teal: #027a7a;
+  --teal-50: #f2fafa;
+  --teal-400: #00a296;
+  --green: #02a117;
 }
 
 body {
